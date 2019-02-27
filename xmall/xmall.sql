@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2018-04-20 12:35:05
+Date: 2018-07-27 23:08:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -65,6 +65,42 @@ CREATE TABLE `tb_base` (
 INSERT INTO `tb_base` VALUES ('1', 'XMall后台管理系统 v1.0', 'XMall后台管理系统 v1.0,XMall,XMall购物商城后台管理系统', 'XMall后台管理系统 v1.0，是一款电商后台管理系统，适合中小型CMS后台系统。', '', '', '', '', '0', 'test login notice', '0', 'test all notice', '', '', 'http://blog.exrick.cn');
 
 -- ----------------------------
+-- Table structure for tb_dict
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_dict`;
+CREATE TABLE `tb_dict` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dict` varchar(255) DEFAULT NULL,
+  `type` int(1) DEFAULT NULL COMMENT '1扩展词 0停用词',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_dict
+-- ----------------------------
+INSERT INTO `tb_dict` VALUES ('1', 'Exrick', '1');
+INSERT INTO `tb_dict` VALUES ('2', 'xmall', '1');
+INSERT INTO `tb_dict` VALUES ('4', 'test', '0');
+
+-- ----------------------------
+-- Table structure for tb_express
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_express`;
+CREATE TABLE `tb_express` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '快递ID',
+  `express_name` varchar(255) DEFAULT NULL COMMENT '商品描述',
+  `sort_order` int(11) DEFAULT NULL COMMENT '排序',
+  `created` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='商品描述表';
+
+-- ----------------------------
+-- Records of tb_express
+-- ----------------------------
+INSERT INTO `tb_express` VALUES ('1', '京东快递', '1', '2018-05-31 11:45:10', null);
+
+-- ----------------------------
 -- Table structure for tb_item
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_item`;
@@ -101,10 +137,10 @@ INSERT INTO `tb_item` VALUES ('816753', '《索尼设计，塑造现代》', '�
 INSERT INTO `tb_item` VALUES ('830972', '《深泽直人》', '首次面向中国读者介绍其作品', '199.00', '999', '100', 'http://image.smartisanos.cn/resource/5e4e40120d09fb6791f9430f914c6f68.jpg', '560', '1', '2017-09-05 21:27:54', '2017-09-05 21:29:54');
 INSERT INTO `tb_item` VALUES ('832739', 'FIIL CARAT 蓝牙运动耳机', '智能计步、磁吸项链式、佩戴舒适不易掉', '499.00', '999', '100', 'http://image.smartisanos.cn/resource/61b4f3de01f00e57a664e648d6ea4721.jpg', '560', '1', '2017-09-05 21:27:54', '2017-09-05 21:29:54');
 INSERT INTO `tb_item` VALUES ('844022', 'FIIL CARAT LITE 蓝牙运动耳机', '线控带麦、IP65 防水、磁吸项链式', '299.00', '999', '100', 'http://image.smartisanos.cn/resource/62c1a6988de8071beef4203bedde5144.jpg', '560', '1', '2017-09-05 21:27:54', '2017-09-05 21:29:54');
-INSERT INTO `tb_item` VALUES ('847276', 'FIIL Diva Pro 全场景无线降噪耳机', '智能语音交互、高清无损本地存储播放', '1499.00', '999', '100', 'http://image.smartisanos.cn/resource/804b82e4c05516e822667a23ee311f7c.jpg', '560', '1', '2017-09-05 21:27:54', '2017-09-05 21:29:54');
-INSERT INTO `tb_item` VALUES ('856645', '三星 Galaxy S4 (I9500) 16G版 星空黑 联通3G手机', '年货特价来袭！三星经典旗舰机！', '1888.00', '999', '100', 'http://ow2h3ee9w.bkt.clouddn.com/nopic.jpg', '560', '0', '2017-09-05 21:27:54', '2017-11-06 23:44:32');
-INSERT INTO `tb_item` VALUES ('150635087972564', '支付测试商品 IPhone X 全面屏 全面绽放', '此仅为支付测试商品 拍下不会发货', '1.00', '999', '100', 'http://ow2h3ee9w.bkt.clouddn.com/FuMpJKl7eTLaSAZCY0wS_ZfA9nZu,http://ow2h3ee9w.bkt.clouddn.com/Fjyrefco9QCd1VMgiuQNoOCcPVtF,http://ow2h3ee9w.bkt.clouddn.com/FoR36ELDFVsXHuRwdkHvgHfHULlw,http://ow2h3ee9w.bkt.clouddn.com/FpiLlu57NsXO97RR08rsP9CVHXK_,http://ow2h3ee9w.bkt.clouddn.com/Fv-R586maGmYxIm0mq_POxUEaiZ6', '560', '1', '2017-09-05 21:27:54', '2017-09-05 21:29:54');
-INSERT INTO `tb_item` VALUES ('150642571432835', '捐赠商品', '您的捐赠将用于本站维护 给您带来更好的体验', '1.00', '999', '100', 'http://ow2h3ee9w.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB,http://ow2h3ee9w.bkt.clouddn.com/FmCkuWMHUgBJX1SoB6z8A9W59fvr', '560', '1', '2017-09-05 21:27:54', '2017-11-09 22:12:23');
+INSERT INTO `tb_item` VALUES ('847276', 'FIIL Diva Pro 全场景无线降噪耳机', '智能语音交互、高清无损本地存储播放', '1499.00', '999', '100', 'http://image.smartisanos.cn/resource/804b82e4c05516e822667a23ee311f7c.jpg', '560', '1', '2017-09-05 21:27:54', '2018-04-20 22:18:11');
+INSERT INTO `tb_item` VALUES ('856645', '三星 Galaxy S4 (I9500) 16G版 星空黑 联通3G手机', '年货特价来袭！三星经典旗舰机！', '1888.00', '999', '100', 'https://i.loli.net/2018/07/13/5b48b58b511dc.jpg', '560', '0', '2017-09-05 21:27:54', '2017-11-06 23:44:32');
+INSERT INTO `tb_item` VALUES ('150635087972564', '支付测试商品 IPhone X 全面屏 全面绽放', '此仅为支付测试商品 拍下不会发货', '1.00', '999', '100', 'https://i.loli.net/2018/07/13/5b48ac7766d98.png,https://i.loli.net/2018/07/13/5b48ac9135c5f.png,https://i.loli.net/2018/07/13/5b48ac9c2be6c.png,https://i.loli.net/2018/07/13/5b48aca99c8b6.png,https://i.loli.net/2018/07/13/5b48a7f468bf2.png', '560', '1', '2017-09-05 21:27:54', '2018-07-13 21:59:05');
+INSERT INTO `tb_item` VALUES ('150642571432835', '捐赠商品', '您的捐赠将用于本站维护 给您带来更好的体验', '1.00', '999', '100', 'https://i.loli.net/2018/07/13/5b48a7f46be51.png,https://i.loli.net/2018/07/13/5b48a952de430.png', '560', '1', '2017-09-05 21:27:54', '2018-07-13 21:38:52');
 INSERT INTO `tb_item` VALUES ('150642571432836', 'Smartisan T恤 伍迪·艾伦出生', '一件内外兼修的舒适T恤', '149.00', '999', '100', 'https://resource.smartisan.com/resource/f96f0879768bc317b74e7cf9e3d96884.jpg,https://resource.smartisan.com/resource/095b46c25f9df5b13ee51f3e512d1e96.jpg,https://resource.smartisan.com/resource/0c9c397c8ac68a2ad327e1da8a5cb7d0.jpg,https://resource.smartisan.com/resource/154b35897ed3c1cb8dc1c7aae7b88f1f.jpg,https://resource.smartisan.com/resource/4a1686f2fde86e0aaac49c92395d4b32.jpg', '1184', '1', '2018-04-18 20:41:41', '2018-04-20 00:21:01');
 INSERT INTO `tb_item` VALUES ('150642571432837', '坚果 3 前屏钢化玻璃保护膜', '超强透光率、耐刮花、防指纹', '49.00', '999', '100', 'https://resource.smartisan.com/resource/3a7522290397a9444d7355298248f197.jpg', '560', '1', '2018-04-19 00:34:06', '2018-04-19 23:49:38');
 INSERT INTO `tb_item` VALUES ('150642571432838', '坚果 3 绒布国旗保护套', '质感精良、完美贴合、周到防护', '79.00', '999', '100', 'https://resource.smartisan.com/resource/63ea40e5c64db1c6b1d480c48fe01272.jpg,https://resource.smartisan.com/resource/4b8d00ab6ba508a977a475988e0fdb53.jpg,https://resource.smartisan.com/resource/87ea3888491d172b7d7a0e78e4294b4b.jpg,https://resource.smartisan.com/resource/8d30265188ddd1ba05e34f669c5dcf1c.jpg', '560', '1', '2018-04-19 00:35:50', '2018-04-20 00:01:08');
@@ -112,16 +148,16 @@ INSERT INTO `tb_item` VALUES ('150642571432839', '坚果 3 TPU 软胶透明保�
 INSERT INTO `tb_item` VALUES ('150642571432840', 'Smartisan 半入耳式耳机', '经典配色、专业调音、高品质麦克风', '89.00', '999', '100', 'https://resource.smartisan.com/resource/9c1d958f10a811df841298d50e1ca7c0.jpg,https://resource.smartisan.com/resource/afa4ecdb54d7f50d0b6265bbcf31d6c8.jpg,https://resource.smartisan.com/resource/eb1bf1dee365c7855e6b047d8b9c5b1e.jpg,https://resource.smartisan.com/resource/dfcc9fa16ab354a41683959398bff128.jpg', '560', '1', '2018-04-19 00:40:40', '2018-04-20 00:04:41');
 INSERT INTO `tb_item` VALUES ('150642571432841', '坚果 3 TPU 软胶保护套', 'TPU 环保材质、完美贴合、周到防护', '49.00', '999', '100', 'https://resource.smartisan.com/resource/b899d9b82c4bc2710492a26af021d484.jpg,https://resource.smartisan.com/resource/bb8859032d6060ccb4e733a2c8e2f51d.jpg,https://resource.smartisan.com/resource/df5b3d3539481eb1c00333a5bc5b60b6.jpg', '560', '1', '2018-04-19 00:43:48', '2018-04-20 00:06:58');
 INSERT INTO `tb_item` VALUES ('150642571432842', '坚果 3 \"足迹\"背贴 乐高创始人出生', '1891 年 4 月 7 日', '79.00', '999', '100', 'https://resource.smartisan.com/resource/abb6986430536cd9365352b434f3c568.jpg', '560', '1', '2018-04-19 00:45:14', '2018-04-20 00:08:21');
-INSERT INTO `tb_item` VALUES ('150642571432843', '坚果 3', '漂亮得不像实力派', '1999.00', '999', '100', 'https://resource.smartisan.com/resource/718bcecced0df1cd23bbdb9cc1f70b7d.png', '560', '1', '2018-04-19 22:13:31', '2018-04-20 11:44:57');
-INSERT INTO `tb_item` VALUES ('150642571432844', '畅呼吸智能空气净化器超级除甲醛版', '购新空净 赠价值 699 元活性炭滤芯', '2999.00', '999', '100', 'https://resource.smartisan.com/resource/71432ad30288fb860a4389881069b874.png', '560', '1', '2018-04-19 22:16:05', '2018-04-20 11:47:02');
+INSERT INTO `tb_item` VALUES ('150642571432843', '坚果 3', '漂亮得不像实力派', '1999.00', '999', '100', 'https://resource.smartisan.com/resource/718bcecced0df1cd23bbdb9cc1f70b7d.png', '560', '1', '2018-04-19 22:13:31', '2018-07-13 22:03:52');
+INSERT INTO `tb_item` VALUES ('150642571432844', '畅呼吸智能空气净化器超级除甲醛版', '购新空净 赠价值 699 元活性炭滤芯', '2999.00', '999', '100', 'https://resource.smartisan.com/resource/71432ad30288fb860a4389881069b874.png', '560', '1', '2018-04-19 22:16:05', '2018-07-13 22:06:58');
 INSERT INTO `tb_item` VALUES ('150642571432845', 'Smartisan 帆布鞋', '一双踏实、舒适的帆布鞋', '199.00', '999', '100', 'https://resource.smartisan.com/resource/2f9a0f5f3dedf0ed813622003f1b287b.jpg,https://resource.smartisan.com/resource/0cd8f107c70d002caf902745355e269a.jpg,https://resource.smartisan.com/resource/fa42dcd439e9fb990831f1d21c3f19b8.jpg', '1184', '1', '2018-04-19 22:22:02', '2018-04-20 00:19:39');
 INSERT INTO `tb_item` VALUES ('150642571432846', 'Smartisan T恤 任天堂发售“红白机”', '100% 美国 SUPIMA 棉、舒适拉绒质地', '149.00', '999', '100', 'https://resource.smartisan.com/resource/804edf579887b3e1fae4e20a379be5b5.png,https://resource.smartisan.com/resource/6a92fe5ab90b379d5315c0ee2610f467.png,https://resource.smartisan.com/resource/76c811504b910e04c448dda8d47a09c3.png', '1184', '1', '2018-04-19 22:23:39', '2018-04-20 00:23:09');
 INSERT INTO `tb_item` VALUES ('150642571432847', 'Smartisan Polo衫 经典款', '一件表里如一的舒适 POLO 衫', '249.00', '999', '100', 'https://resource.smartisan.com/resource/daa975651d6d700c0f886718c520ee19.jpg,https://resource.smartisan.com/resource/8b4884f04835f8de3c33817732fdcb46.jpg,https://resource.smartisan.com/resource/057f6010d6cb7afc964f812093742283.jpg,https://resource.smartisan.com/resource/3cc4b5a1e0a6136eb9725a88d6c1d3be.jpg,https://resource.smartisan.com/resource/f35c053b87dd0e1255be2a8bfa773232.jpg', '1184', '1', '2018-04-19 22:25:41', '2018-04-20 10:51:53');
 INSERT INTO `tb_item` VALUES ('150642571432848', 'Smartisan 牛津纺衬衫', '一件无拘无束的舒适衬衫', '199.00', '999', '100', 'https://resource.smartisan.com/resource/a1c53b5f12dd7ef790cadec0eaeaf466.jpg,https://resource.smartisan.com/resource/dccec50aa1480c23a6d62648d2271c0a.jpg,https://resource.smartisan.com/resource/28c798c14b3cc9cfe7100567df6e5999.jpg,https://resource.smartisan.com/resource/da87105789046c13412f6f6a32032df7.jpg,https://resource.smartisan.com/resource/cf9704df83dc6d6ff5404da154388a58.jpg', '1184', '1', '2018-04-19 22:28:11', '2018-04-20 10:53:15');
-INSERT INTO `tb_item` VALUES ('150642571432849', 'Smartisan 明信片', '优质卡纸、包装精致、色彩饱满', '9.90', '999', '100', 'https://resource.smartisan.com/resource/3973d009d182d8023bea6250b9a3959e.jpg,https://resource.smartisan.com/resource/1901bf9f58d83978353cf1ec58442cc6.jpg,https://resource.smartisan.com/resource/4e0b690102858fc3013ea650fb1e1a8e.jpg,https://resource.smartisan.com/resource/51765f60367d6e40e4ae6f2b9ce46a91.jpg,https://resource.smartisan.com/resource/5108b5e7448c14e5241b60ba41fafc8e.jpg', '1148', '1', '2018-04-19 22:31:09', '2018-04-20 10:54:24');
+INSERT INTO `tb_item` VALUES ('150642571432849', 'Smartisan 明信片', '优质卡纸、包装精致、色彩饱满', '9.90', '999', '100', 'https://resource.smartisan.com/resource/3973d009d182d8023bea6250b9a3959e.jpg,https://resource.smartisan.com/resource/1901bf9f58d83978353cf1ec58442cc6.jpg,https://resource.smartisan.com/resource/4e0b690102858fc3013ea650fb1e1a8e.jpg,https://resource.smartisan.com/resource/51765f60367d6e40e4ae6f2b9ce46a91.jpg,https://resource.smartisan.com/resource/5108b5e7448c14e5241b60ba41fafc8e.jpg', '1184', '1', '2018-04-19 22:31:09', '2018-04-21 11:26:31');
 INSERT INTO `tb_item` VALUES ('150642571432850', 'ACIL E1 颈挂式蓝牙耳机', '无感佩戴，一切变得简单', '199.00', '999', '100', 'https://resource.smartisan.com/resource/406eddef8808fa5a9be9594d07ef8643.jpg,https://resource.smartisan.com/resource/548de41c48d47232b4ed541c1df57c2f.jpg,https://resource.smartisan.com/resource/aee0949bc33654bc18cedb8cd7dfbcff.jpg', '560', '1', '2018-04-19 22:32:38', '2018-04-20 11:17:31');
 INSERT INTO `tb_item` VALUES ('150642571432851', '优点智能 E1 推拉式智能指纹密码锁', '推拉一下，轻松开关', '2699.00', '999', '100', 'https://resource.smartisan.com/resource/7ac3af5a92ad791c2b38bfe1e38ee334.jpg,https://resource.smartisan.com/resource/e37029b8cd3194ad9581de0ee6512acb.jpg,https://resource.smartisan.com/resource/1501eaf68c9771e5599eec45a5f6320a.jpg,https://resource.smartisan.com/resource/a8c6a41637041c576aaa2a5162d2ab56.jpg,https://resource.smartisan.com/resource/3934e0c458922c0049d311b84ddb73e0.jpg', '560', '1', '2018-04-19 22:36:50', '2018-04-20 00:13:44');
-INSERT INTO `tb_item` VALUES ('150642571432852', 'FIIL Driifter 脖挂蓝牙耳机', '全天佩戴 抬手就听 HEAC稳连技术', '499.00', '999', '100', 'https://resource.smartisan.com/resource/367d93db1d58f9f3505bc0ec18efaa44.jpg,https://resource.smartisan.com/resource/8ecc94c0f0c4ebc861f06c86789a66e6.jpg,https://resource.smartisan.com/resource/58a2cdb44f722202b05dd09d6fd959de.jpg,https://resource.smartisan.com/resource/2b811a93a2915310f72291e46bd944ad.jpg,https://resource.smartisan.com/resource/8cd011adef99f9734ed974ea9732e6e7.jpg', '560', '1', '2018-04-19 22:38:59', '2018-04-20 00:18:17');
+INSERT INTO `tb_item` VALUES ('150642571432852', 'FIIL Driifter 脖挂蓝牙耳机', '全天佩戴 抬手就听 HEAC稳连技术', '499.00', '999', '100', 'https://resource.smartisan.com/resource/367d93db1d58f9f3505bc0ec18efaa44.jpg,https://resource.smartisan.com/resource/8ecc94c0f0c4ebc861f06c86789a66e6.jpg,https://resource.smartisan.com/resource/58a2cdb44f722202b05dd09d6fd959de.jpg,https://resource.smartisan.com/resource/2b811a93a2915310f72291e46bd944ad.jpg,https://resource.smartisan.com/resource/8cd011adef99f9734ed974ea9732e6e7.jpg', '560', '1', '2018-06-02 19:43:12', '2018-06-02 19:43:14');
 
 -- ----------------------------
 -- Table structure for tb_item_cat
@@ -1358,10 +1394,10 @@ INSERT INTO `tb_item_desc` VALUES ('816753', '<img src=\"http://image.smartisano
 INSERT INTO `tb_item_desc` VALUES ('830972', '<img src=\"http://image.smartisanos.cn/resource/102ed8a03b5f4452dda7dc513c016f12.jpg\" style=\"width:1220px;height:8811px;\" alt=\"\" />', '2017-09-05 21:27:54', '2017-11-19 21:37:54');
 INSERT INTO `tb_item_desc` VALUES ('832739', '<img src=\"http://image.smartisanos.cn/resource/f86802b6a7b207d02f5c69163fa5e347.jpg\" style=\"width:1220px;height:13682px;\" alt=\"\" />', '2017-09-05 21:27:54', '2017-11-19 21:39:10');
 INSERT INTO `tb_item_desc` VALUES ('844022', '<img src=\"http://image.smartisanos.cn/resource/bcd85c778a0b54b61afe813bd7b674d4.jpg\" style=\"width:1220px;height:12384px;\" alt=\"\" />', '2017-09-05 21:27:54', '2017-11-19 21:40:07');
-INSERT INTO `tb_item_desc` VALUES ('847276', '<img src=\"http://image.smartisanos.cn/resource/9be6229b3498749c4afd173a3b1fe165.png\" style=\"width:1120px;height:15514px;\" alt=\"\" />', '2017-09-05 21:27:54', '2017-11-19 21:45:31');
+INSERT INTO `tb_item_desc` VALUES ('847276', '<img src=\"http://image.smartisanos.cn/resource/9be6229b3498749c4afd173a3b1fe165.png\" style=\"width:1220px;height:15514px;\" alt=\"\" />', '2017-09-05 21:27:54', '2018-04-20 22:18:11');
 INSERT INTO `tb_item_desc` VALUES ('856645', '<div class=\"ssd-module-wrap\" style=\"margin:0 auto;text-align:left;\">\n	<div class=\"outer-container\">\n		<div class=\" \" id=\"\">\n			<div class=\"ssd-1080\">\n				<div class=\"ssd-j-module item_tit\">\n					<div class=\"tit1\">\n						产品特色\n					</div>\n					<div class=\"tit2\">\n						PRODUCTION\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-1183\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff url(http://img30.360buyimg.com/sku/jfs/t460/159/849423048/82352/867f75ff/548e5a88N73b12dd9.jpg) no-repeat;\">\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n						</div>\n						<div class=\"title2\">\n						</div>\n					</div>\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t451/241/814906943/1043/fa877bc/548e4238N585a2a89.png\" alt=\"\" /> \n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2165\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff url(http://img30.360buyimg.com/cms/jfs/t217/232/2460673136/4947/e76ec4b7/541a3cf8Ne7d0749d.png) no-repeat;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t598/141/839042103/90325/3ea2cf8a/548e7e74Nc2025337.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n						</div>\n						<div class=\"title2\">\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2165\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t472/95/847651115/101211/6b98601c/548e7fc5Ncb21ef86.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n							、\n						</div>\n						<div class=\"title2\">\n							、\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \" id=\"\">\n			<div class=\"ssd-1080\">\n				<div class=\"ssd-j-module item_tit\">\n					<div class=\"tit1\">\n						产品功能\n					</div>\n					<div class=\"tit2\">\n						PRODUCT FUNCTION\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2165\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff url(http://img30.360buyimg.com/cms/jfs/t217/232/2460673136/4947/e76ec4b7/541a3cf8Ne7d0749d.png) no-repeat;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t745/150/148843066/79290/604280fc/548e8318Na94c82f9.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n							、\n						</div>\n						<div class=\"title2\">\n							、\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-1829\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t769/364/157509045/89868/d97d79ef/548e9d75N18fc06d2.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n						</div>\n						<div class=\"title2\">\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2136\">\n				<div class=\"ssd-j-module img_box\" style=\"background:#cccccc;\">\n					<div class=\"imglab\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t685/187/809086881/59964/1802066d/548ea270N6853bbcd.jpg\" alt=\"\" /> \n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2136\">\n				<div class=\"ssd-j-module img_box\" style=\"background:#cccccc;\">\n					<div class=\"imglab\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t685/96/811972813/58610/d1082b4d/548ea4ceN7273b5bd.jpg\" alt=\"\" /> \n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-1243\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#f3f3f3 url(http://img30.360buyimg.com/sku/jfs/t487/290/816270587/57176/b1d5d9d0/548ea5afN026eaf9a.jpg) no-repeat;\">\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n							、\n						</div>\n						<div class=\"title2\">\n							、\n						</div>\n					</div>\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t547/275/827858003/1121/958dc0d9/548ea626Na2fb0cd4.png\" alt=\"\" /> \n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \" id=\"\">\n			<div class=\"ssd-1080\">\n				<div class=\"ssd-j-module item_tit\">\n					<div class=\"tit1\">\n						产品细节\n					</div>\n					<div class=\"tit2\">\n						PRODUCT DETAILS\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2165\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff url(http://img30.360buyimg.com/cms/jfs/t217/232/2460673136/4947/e76ec4b7/541a3cf8Ne7d0749d.png) no-repeat;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t766/326/165583398/153663/931a1487/548ea712N54c54c32.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n						</div>\n						<div class=\"title2\">\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\" \">\n			<div class=\"ssd-2165\">\n				<div class=\"ssd-j-module item_tw_1\" style=\"background:#ffffff url(http://img30.360buyimg.com/cms/jfs/t217/232/2460673136/4947/e76ec4b7/541a3cf8Ne7d0749d.png) no-repeat;\">\n					<div class=\"img-pic\">\n						<img class=\"ssd-err-product\" src=\"http://img30.360buyimg.com/sku/jfs/t571/63/809585802/77035/720c5d87/548ea7d9N22f04056.jpg\" alt=\"\" /> \n					</div>\n					<div class=\"txt_box\">\n						<div class=\"title1\">\n						</div>\n						<div class=\"title2\">\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n</div>', '2017-09-05 21:27:54', '2017-10-22 22:04:26');
-INSERT INTO `tb_item_desc` VALUES ('150635087972564', '<p style=\"text-align:center;\">\n	<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FqBDN5mRaCJfUXsZlEwgNlY9UCJw\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FvP7mq3aF6HSbnbiIe_amQQ1CWB8\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/Fllk6gbfTG93tJiDJRwbAgcKvea9\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/Fur__xJSxoOM9YyPWgELEkMwJZ78\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FrlJB1F11Oxr2bZ0n8PfMhuussu0\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FkrxCvAaRDyHCcqvD8XvYy-ayZI8\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FpS75rNFTD8NHmgJOOkV2LoZZldd\" alt=\"\" /> \n</p>\n<p style=\"text-align:center;\">\n	<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FiZ_UVwbjVA60GLr05qD3Cn5JLkh\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FiIwt0c7nQHgjlPoLGIryIRPp7C-\" alt=\"\" /> \n</p>', '2017-09-25 22:47:59', '2017-09-26 21:39:23');
-INSERT INTO `tb_item_desc` VALUES ('150642571432835', '<br />\n<br />\n<br />\n<span style=\"font-size:18px;\">为什么要捐赠？</span> <br />\n<br />\n<span style=\"font-size:18px;\">在开始之前，首先感谢用户的支持和慷慨解囊，不得不说，你们的支持给予了很大的动力</span> <br />\n<br />\n<span style=\"font-size:18px;\">没有广告和第三方推广的收入，主动捐赠是项目受欢迎程度最直观的体现</span> <br />\n<br />\n<span style=\"font-size:18px;\">当支付宝或微信偶尔收到一笔捐赠，就感觉多了一分认可，多了一分责任</span> <br />\n<br />\n<span style=\"font-size:18px;\">一个非盈利项目仅仅依靠兴趣的支撑，很难确定它还能走多远</span> <br />\n<br />\n<span style=\"font-size:18px;\">它以后会变成怎样，我不知道。我只知道，有些东西，要靠双方去维持</span> <br />\n<br />\n<span style=\"font-size:18px;\">捐赠的渠道</span> <br />\n<br />\n<span style=\"font-size:18px;\">支付宝：</span> <br />\n<br />\n<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FrVRc-Q7SBu990kJ9lgcAK-f94QC\" alt=\"\" /> <br />\n<br />\n<span style=\"font-size:18px;\">微信支付：</span> <br />\n<br />\n<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FiFGgDZAXeFRi6F9xFyh4ugi5gGf\" alt=\"\" /> <br />\n<br />\n<span style=\"font-size:18px;\">微信打赏请留言备注您的信息</span> <br />\n<br />\n<br />\n<br />\n<br />', '2017-09-05 21:27:54', '2017-11-19 22:36:10');
+INSERT INTO `tb_item_desc` VALUES ('150635087972564', '<p style=\"text-align:center;\">\n	<img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t7843/137/3005340945/124833/dc7c71f2/59b8ccd1N2bffd055.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8764/314/1380452846/296346/d62490e2/59b8ccd1N96ce760d.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8710/275/1373463301/363710/ebf00bff/59b8ccbaN2d563f74.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8632/330/1390725687/229853/e56f9e1b/59b8ccd1N7b8b6bdb.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9115/290/1376678976/488369/591760dc/59b8ccc6N1563a61b.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8233/331/1431263348/183032/b875528c/59b8ccd1Ne7e633e3.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8785/253/890847377/186916/c467a464/59b8ccd1N4551397c.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8728/276/1416802585/172158/1516ec08/59b8ccd1N95aae9c9.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9082/133/1223014275/307097/58f97021/59b8ccd2Nebfc633a.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9052/275/1400615286/155643/1b0ecf44/59b8ccd2N46bd82bf.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9169/240/1361662217/193435/24ed9b93/59b8ccd4N03cec407.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t7390/232/3008585906/285016/56cbb12/59b8ccd4Nc8434af8.jpg\" alt=\"\" /> \n</p>', '2017-09-05 21:27:54', '2018-07-13 21:59:05');
+INSERT INTO `tb_item_desc` VALUES ('150642571432835', '<br />\n<br />\n<br />\n<span style=\"font-size:18px;\">为什么要捐赠？</span> <br />\n<br />\n<span style=\"font-size:18px;\">在开始之前，首先感谢用户的支持和慷慨解囊，不得不说，你们的支持给予了很大的动力</span> <br />\n<br />\n<span style=\"font-size:18px;\">没有广告和第三方推广的收入，主动捐赠是项目受欢迎程度最直观的体现</span> <br />\n<br />\n<span style=\"font-size:18px;\">当支付宝或微信偶尔收到一笔捐赠，就感觉多了一分认可，多了一分责任</span> <br />\n<br />\n<span style=\"font-size:18px;\">一个非盈利项目仅仅依靠兴趣的支撑，很难确定它还能走多远</span> <br />\n<br />\n<span style=\"font-size:18px;\">它以后会变成怎样，我不知道。我只知道，有些东西，要靠双方去维持</span> <br />\n<br />\n<span style=\"font-size:18px;\">捐赠的渠道</span> <br />\n<br />\n<span style=\"font-size:18px;\">支付宝：</span> <br />\n<br />\n<img src=\"https://i.loli.net/2018/07/13/5b48a7f46be51.png\" width=\"250px\" alt=\"\" /> <br />\n<br />\n<span style=\"font-size:18px;\">微信支付：</span> <br />\n<br />\n<img src=\"https://i.loli.net/2018/07/13/5b48a952de430.png\" width=\"250px\" alt=\"\" /> <br />\n<br />\n<span style=\"font-size:18px;\">微信打赏请留言备注您的信息</span> <br />\n<br />\n<br />\n<br />\n<br />', '2017-09-05 21:27:54', '2018-07-13 21:38:52');
 INSERT INTO `tb_item_desc` VALUES ('150642571432836', '<img src=\"https://resource.smartisan.com/resource/36fee45879f4f252492ec552dfd4c323.jpg\" style=\"width:1220px;height:6982px;\" alt=\"\" />', '2018-04-18 20:41:41', '2018-04-20 00:21:01');
 INSERT INTO `tb_item_desc` VALUES ('150642571432837', '<img src=\"https://resource.smartisan.com/resource/5dcbe27f36e1f8f2bfdfabb0b2681879.jpg\" style=\"width:1220px;height:3665px;\" alt=\"\" />', '2018-04-19 00:34:06', '2018-04-19 23:49:38');
 INSERT INTO `tb_item_desc` VALUES ('150642571432838', '<img src=\"https://resource.smartisan.com/resource/3aa27e8caf798b5e7e3796388190b43b.jpg\" style=\"width:1220px;height:5797px;\" alt=\"\" />', '2018-04-19 00:35:50', '2018-04-20 00:01:08');
@@ -1369,67 +1405,15 @@ INSERT INTO `tb_item_desc` VALUES ('150642571432839', '<img src=\"https://resour
 INSERT INTO `tb_item_desc` VALUES ('150642571432840', '<img src=\"https://resource.smartisan.com/resource/14497b77e21fc6d0807e57bb9deabe28.jpg\" style=\"width:1220px;height:9527px;\" alt=\"\" />', '2018-04-19 00:40:40', '2018-04-20 00:04:41');
 INSERT INTO `tb_item_desc` VALUES ('150642571432841', '<img src=\"https://resource.smartisan.com/resource/4272e7737eed967a8f2f10ebef9b84dc.jpg style=\"width:1220px;height:4990px;\" alt=\"\" />', '2018-04-19 00:43:48', '2018-04-20 00:06:59');
 INSERT INTO `tb_item_desc` VALUES ('150642571432842', '<img src=\"https://resource.smartisan.com/resource/4cbe4a14ab225c9466e16f8c8ef4e29e.jpg\" style=\"width:1220px;height:4083px;\" alt=\"\" />', '2018-04-19 00:45:14', '2018-04-20 00:08:21');
-INSERT INTO `tb_item_desc` VALUES ('150642571432843', '<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FjNp6CU3QDN4X8wfjbONZ-kf2YbG\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FmbDadGBR28eur3yOGwxgMST0GlF\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FgHeBZRyLgCrHq3fg-36RWgwixeU\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FqEtQQx5n-8fQhy7csu1OrPbSsUI\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/Fq5I2-jrTWgrjZpAQbj13n4CUfoE\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/Fhj_BTPsZTC6ZXLAS3FS1B6ErYI_\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FnDbl9SM1Wafmv3tc5QdQ46fmJJt\" width=\"1220px\" alt=\"\" />', '2018-04-19 22:13:31', '2018-04-20 11:44:57');
-INSERT INTO `tb_item_desc` VALUES ('150642571432844', '<img src=\"http://ow2h3ee9w.bkt.clouddn.com/FodxCrwcYDkQCQEplLXPt0Eu_1h2\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/Ft2VIi4GWeNB05Q3uEiVKJDquvv1\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FnUQwpuj0qiUsJtQ8e_5Z_PaMRSB\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FoGioa80w9Z2gKtHXwRgAR65vK4k\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FgY67q3m8sVmspUkeMEOPLt0oWpv\" width=\"1220px\" alt=\"\" /><img src=\"http://ow2h3ee9w.bkt.clouddn.com/FpXCKQ7WBg648LUVPkrt5zvm2teG\" width=\"1220px\" alt=\"\" />', '2018-04-19 22:16:05', '2018-04-20 11:47:02');
+INSERT INTO `tb_item_desc` VALUES ('150642571432843', '<img src=\"https://img20.360buyimg.com/vc/jfs/t17368/340/1617561606/1069487/9676971/5ad014b1Nb8463c4e.jpg\" width=\"1220px\" alt=\"\" />\n<img src=\"https://img20.360buyimg.com/vc/jfs/t17278/52/1620296383/1157116/3d0f473/5ad014b8N32c9c183.jpg\" width=\"1220px\" alt=\"\" />\n<img src=\"https://img20.360buyimg.com/vc/jfs/t19420/87/1609028179/1135327/9b3e0f97/5ad014c0N6234ba19.jpg\" width=\"1220px\" alt=\"\" />', '2018-04-19 22:13:31', '2018-07-13 22:03:52');
+INSERT INTO `tb_item_desc` VALUES ('150642571432844', '<img src=\"https://img20.360buyimg.com/vc/jfs/t11503/47/1494539812/1725396/3defedb6/5a046e18Ne0a5d5da.jpg\" alt=\"\" />', '2018-04-19 22:16:05', '2018-07-13 22:06:58');
 INSERT INTO `tb_item_desc` VALUES ('150642571432845', '<img src=\"https://resource.smartisan.com/resource/27a054301d8e10c40461443928dccd77.jpg\" style=\"width:1220px;height:7451px;\" alt=\"\" />', '2018-04-19 22:22:02', '2018-04-20 00:19:39');
 INSERT INTO `tb_item_desc` VALUES ('150642571432846', '<img src=\"https://resource.smartisan.com/resource/65e89427674ee370fa58f5fe98120679.png\" style=\"width:1220px;height:7881px;\" alt=\"\" />', '2018-04-19 22:23:39', '2018-04-20 00:23:09');
 INSERT INTO `tb_item_desc` VALUES ('150642571432847', '<img src=\"https://resource.smartisan.com/resource/41338ebac06fc82450f8b8e4867df257.jpg\" style=\"width:1220px;height:5043px;\" alt=\"\" />', '2018-04-19 22:25:41', '2018-04-20 10:51:53');
 INSERT INTO `tb_item_desc` VALUES ('150642571432848', '<img src=\"https://resource.smartisan.com/resource/debb893778547fb9d5a6119b376d9ec1.jpg\" style=\"width:1220px;height:6879px;\" alt=\"\" />', '2018-04-19 22:28:11', '2018-04-20 10:53:15');
-INSERT INTO `tb_item_desc` VALUES ('150642571432849', '<img src=\"https://resource.smartisan.com/resource/f03a523847e63f28f9238aad45567b37.jpg\" style=\"width:1220px;height:7935px;\" alt=\"\" />', '2018-04-19 22:31:09', '2018-04-20 10:54:24');
+INSERT INTO `tb_item_desc` VALUES ('150642571432849', '<img src=\"https://resource.smartisan.com/resource/f03a523847e63f28f9238aad45567b37.jpg\" style=\"width:1220px;height:7935px;\" alt=\"\" />', '2018-04-19 22:31:09', '2018-04-21 11:26:31');
 INSERT INTO `tb_item_desc` VALUES ('150642571432850', '<img src=\"https://resource.smartisan.com/resource/f6de19257228641b1a0c1964239b19b7.jpg\" style=\"width:1220px;height:9970px;\" alt=\"\" />', '2018-04-19 22:32:38', '2018-04-20 11:17:31');
 INSERT INTO `tb_item_desc` VALUES ('150642571432851', '<img src=\"https://resource.smartisan.com/resource/a1f3fbf662376e8684e528f05721b286.jpg\" style=\"width:1220px;height:14998px;\" alt=\"\" />', '2018-04-19 22:36:50', '2018-04-20 00:13:44');
-INSERT INTO `tb_item_desc` VALUES ('150642571432852', '<img src=\"https://resource.smartisan.com/resource/a86e4fc110fbb0bf72095a6ea78de841.jpg\" style=\"width:1220px;height:13362px;\" alt=\"\" />', '2018-04-19 22:38:59', '2018-04-20 00:18:17');
-
--- ----------------------------
--- Table structure for tb_item_param
--- ----------------------------
-DROP TABLE IF EXISTS `tb_item_param`;
-CREATE TABLE `tb_item_param` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `item_cat_id` bigint(20) DEFAULT NULL COMMENT '商品类目ID',
-  `param_data` text COMMENT '参数数据 格式为json格式',
-  `created` datetime DEFAULT NULL,
-  `updated` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `item_cat_id` (`item_cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='商品规则参数';
-
--- ----------------------------
--- Records of tb_item_param
--- ----------------------------
-INSERT INTO `tb_item_param` VALUES ('1', '3', '[{\"group\":\"组名1\",\"params\":[\"组员1\",\"组员2\"]},{\"group\":\"组名2\",\"params\":[\"组员1\",\"组员2\"]},{\"group\":\"组名3\",\"params\":[\"组员1\",\"组员2\",\"组员3\",\"组员4\"]}]', '2015-04-03 10:21:22', '2015-04-03 10:21:22');
-INSERT INTO `tb_item_param` VALUES ('2', '560', '[{\"group\":\"主体\",\"params\":[\"品牌\",\"型号\",\"颜色\",\"上市年份\"]},{\"group\":\"网络\",\"params\":[\"4G网络制式\",\"3G网络制式\",\"2G网络制式\"]},{\"group\":\"存储\",\"params\":[\"机身内存\",\"储存卡类型\"]}]', '2015-04-03 10:40:12', '2015-04-03 10:40:12');
-INSERT INTO `tb_item_param` VALUES ('3', '298', '[{\"group\":\"g1\",\"params\":[\"aa\",\"bb\",\"cc\"]},{\"group\":\"g2\",\"params\":[\"ad\",\"sd\"]},{\"group\":\"g3\",\"params\":[\"sdd\",\"sdfs\",\"dfg\"]}]', '2015-06-05 11:59:45', '2015-06-05 11:59:45');
-INSERT INTO `tb_item_param` VALUES ('21', '440', '[{\"group\":\"1\",\"params\":[\"2w\"]},{\"group\":\"2\",\"params\":[\"1\"]},{\"group\":\"3\",\"params\":[\"1\"]},{\"group\":\"4\",\"params\":[\"1\"]}]', '2015-06-05 12:04:41', '2015-06-05 12:04:41');
-INSERT INTO `tb_item_param` VALUES ('22', '298', '[{\"group\":\"f1\",\"params\":[\"1\"]},{\"group\":\"f2\",\"params\":[\"2\"]}]', '2015-06-05 12:08:07', '2015-06-05 12:08:07');
-INSERT INTO `tb_item_param` VALUES ('23', '257', '[{\"group\":\"12\",\"params\":[\"12\"]}]', '2015-06-05 12:10:45', '2015-06-05 12:10:45');
-INSERT INTO `tb_item_param` VALUES ('24', '443', '[{\"group\":\"股氯气\",\"params\":[\"撒旦法\"]}]', '2015-06-05 12:11:16', '2015-06-05 12:11:16');
-INSERT INTO `tb_item_param` VALUES ('25', '298', '[{\"group\":\"1\",\"params\":[\"1\"]}]', '2015-06-05 12:21:01', '2015-06-05 12:21:01');
-INSERT INTO `tb_item_param` VALUES ('26', '582', '[{\"group\":\"分组1\",\"params\":[\"参数1\",\"参数2\",\"参数3\",\"参数4\",\"参数5\"]},{\"group\":\"分组2\",\"params\":[\"参数21\",\"参数22\",\"参数23\",\"参数24\"]}]', '2015-07-23 16:44:32', '2015-07-23 16:44:32');
-
--- ----------------------------
--- Table structure for tb_item_param_item
--- ----------------------------
-DROP TABLE IF EXISTS `tb_item_param_item`;
-CREATE TABLE `tb_item_param_item` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `item_id` bigint(20) DEFAULT NULL COMMENT '商品ID',
-  `param_data` text COMMENT '参数数据 格式为json格式',
-  `created` datetime DEFAULT NULL,
-  `updated` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `item_id` (`item_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='商品规格和商品的关系表';
-
--- ----------------------------
--- Records of tb_item_param_item
--- ----------------------------
-INSERT INTO `tb_item_param_item` VALUES ('1', '48', '[{\"group\":\"主体\",\"params\":[{\"k\":\"品牌\",\"v\":\"苹果（Apple）\"},{\"k\":\"型号\",\"v\":\"iPhone 6 A1586\"},{\"k\":\"颜色\",\"v\":\"金色\"},{\"k\":\"上市年份\",\"v\":\"2014\"}]},{\"group\":\"网络\",\"params\":[{\"k\":\"4G网络制式\",\"v\":\"移动4G(TD-LTE)/联通4G(FDD-LTE)/电信4G(FDD-LTE)\"},{\"k\":\"3G网络制式\",\"v\":\"移动3G(TD-SCDMA)/联通3G(WCDMA)/电信3G（CDMA2000）\"},{\"k\":\"2G网络制式\",\"v\":\"移动2G/联通2G(GSM)/电信2G(CDMA)\"}]},{\"group\":\"存储\",\"params\":[{\"k\":\"机身内存\",\"v\":\"16GB ROM\"},{\"k\":\"储存卡类型\",\"v\":\"不支持\"}]}]', '2015-04-03 10:52:55', '2015-04-03 10:52:55');
-INSERT INTO `tb_item_param_item` VALUES ('2', '1188043', '[{\"group\":\"主体\",\"params\":[{\"k\":\"品牌\",\"v\":\"锤子\"},{\"k\":\"型号\",\"v\":\"T1(SM705)\"},{\"k\":\"颜色\",\"v\":\"黑色\"},{\"k\":\"上市年份\",\"v\":\"2014年\"}]},{\"group\":\"网络\",\"params\":[{\"k\":\"4G网络制式\",\"v\":\"移动4G（TD-LTE）/联通4G（FDD-LTE）\"},{\"k\":\"3G网络制式\",\"v\":\"移动3G(TD-SCDMA)/联通3G(WCDMA)\"},{\"k\":\"2G网络制式\",\"v\":\"移动2G/联通2G(GSM)\"}]},{\"group\":\"存储\",\"params\":[{\"k\":\"机身内存\",\"v\":\"32GB ROM\"},{\"k\":\"储存卡类型\",\"v\":\"2GB RAM\"}]}]', '2015-04-06 11:24:10', '2015-04-06 11:24:10');
-INSERT INTO `tb_item_param_item` VALUES ('3', '1433500495290', '[{\"group\":\"主体\",\"params\":[{\"k\":\"品牌\",\"v\":\"1\"},{\"k\":\"型号\",\"v\":\"2\"},{\"k\":\"颜色\",\"v\":\"3\"},{\"k\":\"上市年份\",\"v\":\"4\"}]},{\"group\":\"网络\",\"params\":[{\"k\":\"4G网络制式\",\"v\":\"a\"},{\"k\":\"3G网络制式\",\"v\":\"b\"},{\"k\":\"2G网络制式\",\"v\":\"c\"}]},{\"group\":\"存储\",\"params\":[{\"k\":\"机身内存\",\"v\":\"de\"},{\"k\":\"储存卡类型\",\"v\":\"ef\"}]}]', '2015-06-05 18:34:52', '2015-06-05 18:34:52');
-INSERT INTO `tb_item_param_item` VALUES ('4', '1001434271015869', '[{\"group\":\"主体\",\"params\":[{\"k\":\"品牌\",\"v\":\"华为（HUAWEI）\"},{\"k\":\"型号\",\"v\":\"P8\"},{\"k\":\"颜色\",\"v\":\"皓月银\"},{\"k\":\"上市年份\",\"v\":\"2015年\"}]},{\"group\":\"网络\",\"params\":[{\"k\":\"4G网络制式\",\"v\":\"移动4G(TDD-LTE)/联通4G(TDD-LTE/FDD-LTE)\"},{\"k\":\"3G网络制式\",\"v\":\"移动3G(TD-SCDMA)/联通3G(WCDMA)\"},{\"k\":\"2G网络制式\",\"v\":\"移动2G/联通2G(GSM)\"}]},{\"group\":\"存储\",\"params\":[{\"k\":\"机身内存\",\"v\":\"16GB ROM\"},{\"k\":\"储存卡类型\",\"v\":\"MicroSD(TF)\"}]}]', '2015-06-14 16:36:55', '2015-06-14 16:36:55');
-INSERT INTO `tb_item_param_item` VALUES ('5', '101434521126763', '[{\"group\":\"组名1\",\"params\":[{\"k\":\"组员1\",\"v\":\"a\"},{\"k\":\"组员2\",\"v\":\"a\"}]},{\"group\":\"组名2\",\"params\":[{\"k\":\"组员1\",\"v\":\"sd\"},{\"k\":\"组员2\",\"v\":\"ss\"}]},{\"group\":\"组名3\",\"params\":[{\"k\":\"组员1\",\"v\":\"sd\"},{\"k\":\"组员2\",\"v\":\"sd\"},{\"k\":\"组员3\",\"v\":\"sd\"},{\"k\":\"组员4\",\"v\":\"sda\"}]}]', '2015-06-17 14:05:26', '2015-06-17 14:05:26');
-INSERT INTO `tb_item_param_item` VALUES ('8', '143771131488369', '[{\"group\":\"主体\",\"params\":[{\"k\":\"品牌\",\"v\":\"1\"},{\"k\":\"型号\",\"v\":\"1\"},{\"k\":\"颜色\",\"v\":\"2\"},{\"k\":\"上市年份\",\"v\":\"3\"}]},{\"group\":\"网络\",\"params\":[{\"k\":\"4G网络制式\",\"v\":\"1\"},{\"k\":\"3G网络制式\",\"v\":\"2\"},{\"k\":\"2G网络制式\",\"v\":\"3\"}]},{\"group\":\"存储\",\"params\":[{\"k\":\"机身内存\",\"v\":\"4\"},{\"k\":\"储存卡类型\",\"v\":\"2\"}]}]', '2015-07-24 12:15:14', '2015-07-24 12:15:14');
 
 -- ----------------------------
 -- Table structure for tb_log
@@ -1448,7 +1432,7 @@ CREATE TABLE `tb_log` (
   `time` int(11) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_log
@@ -1520,9 +1504,6 @@ CREATE TABLE `tb_order` (
 -- Records of tb_order
 -- ----------------------------
 INSERT INTO `tb_order` VALUES ('150787555927616', '1.00', null, null, '5', '2017-10-13 14:19:19', '2017-10-13 14:19:19', null, null, null, '2017-10-13 14:19:35', null, null, '63', null, 'admin', null);
-INSERT INTO `tb_order` VALUES ('152189811089285', '49.00', null, null, '1', '2018-03-24 21:28:30', '2018-03-24 21:32:28', '2018-03-24 21:32:28', null, null, null, null, null, '62', null, 'test', null);
-INSERT INTO `tb_order` VALUES ('152190022212320', '1.00', null, null, '6', '2018-03-24 22:03:42', '2018-03-24 22:21:02', '2018-03-24 22:03:49', null, null, '2018-03-24 22:21:02', null, null, '62', null, 'test', null);
-INSERT INTO `tb_order` VALUES ('152212603026105', '1.00', null, null, '4', '2018-03-27 12:47:10', '2018-03-27 12:48:23', '2018-03-27 12:47:22', null, '2018-03-27 12:48:23', null, null, null, '62', null, 'test', null);
 
 -- ----------------------------
 -- Table structure for tb_order_item
@@ -1546,9 +1527,6 @@ CREATE TABLE `tb_order_item` (
 -- Records of tb_order_item
 -- ----------------------------
 INSERT INTO `tb_order_item` VALUES ('150787555927880', '150642571432835', '150787555927616', '1', '捐赠商品', '1.00', '1.00', 'http://ow2h3ee9w.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB');
-INSERT INTO `tb_order_item` VALUES ('152189811096002', '635906', '152189811089285', '1', 'Smartisan M1 软胶保护套', '49.00', '49.00', 'http://image.smartisanos.cn/resource/1410440c8a690ec361e6e77de59939c6.png');
-INSERT INTO `tb_order_item` VALUES ('152190022215406', '150635087972564', '152190022212320', '1', '支付测试商品 IPhone X 全面屏 全面绽放', '1.00', '1.00', 'http://ow2h3ee9w.bkt.clouddn.com/FuMpJKl7eTLaSAZCY0wS_ZfA9nZu');
-INSERT INTO `tb_order_item` VALUES ('152212603031720', '150635087972564', '152212603026105', '1', '支付测试商品 IPhone X 全面屏 全面绽放', '1.00', '1.00', 'http://ow2h3ee9w.bkt.clouddn.com/FuMpJKl7eTLaSAZCY0wS_ZfA9nZu');
 
 -- ----------------------------
 -- Table structure for tb_order_shipping
@@ -1573,9 +1551,6 @@ CREATE TABLE `tb_order_shipping` (
 -- Records of tb_order_shipping
 -- ----------------------------
 INSERT INTO `tb_order_shipping` VALUES ('150787555927616', '4', '4', null, null, null, null, '4', null, '2017-10-13 14:19:19', '2017-10-13 14:19:19');
-INSERT INTO `tb_order_shipping` VALUES ('152189811089285', '1', '1', null, null, null, null, '1', null, '2018-03-24 21:28:30', '2018-03-24 21:28:30');
-INSERT INTO `tb_order_shipping` VALUES ('152190022212320', '1', '1', null, null, null, null, '1', null, '2018-03-24 22:03:42', '2018-03-24 22:03:42');
-INSERT INTO `tb_order_shipping` VALUES ('152212603026105', '1', '1', null, null, null, null, '1', null, '2018-03-27 12:47:10', '2018-03-27 12:47:10');
 
 -- ----------------------------
 -- Table structure for tb_panel
@@ -1629,7 +1604,7 @@ CREATE TABLE `tb_panel_content` (
   PRIMARY KEY (`id`),
   KEY `category_id` (`panel_id`),
   KEY `updated` (`updated`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_panel_content
@@ -1656,7 +1631,7 @@ INSERT INTO `tb_panel_content` VALUES ('29', '2', '2', '150642571432843', '0', '
 INSERT INTO `tb_panel_content` VALUES ('30', '3', '2', '150642571432850', '0', '', 'https://resource.smartisan.com/resource/a/acillouceng1220856.jpg', null, null, '2018-04-15 20:15:18', '2018-04-20 11:18:03');
 INSERT INTO `tb_panel_content` VALUES ('32', '7', '0', '150635087972564', '1', '', 'http://static.smartisanos.cn/index/img/store/home/banner-3d-item-1-box-1_61bdc2f4f9.png', 'http://static.smartisanos.cn/index/img/store/home/banner-3d-item-1-box-3_8fa7866d59.png', 'http://ow2h3ee9w.bkt.clouddn.com/banner-3d-item-1-box-33.png', '2018-04-17 20:41:02', '2018-04-17 20:58:41');
 INSERT INTO `tb_panel_content` VALUES ('33', '7', '0', '150642571432835', '2', '', 'http://oweupqzdv.bkt.clouddn.com/bg_left.png', 'http://ow2h3ee9w.bkt.clouddn.com/phone_left2.png', 'http://oweupqzdv.bkt.clouddn.com/erji_left.png', '2018-04-17 21:08:22', '2018-04-20 10:47:19');
-INSERT INTO `tb_panel_content` VALUES ('34', '7', '0', '150635087972564', '3', null, 'http://oweupqzdv.bkt.clouddn.com/red-left.png', 'http://oweupqzdv.bkt.clouddn.com/word-left.png', 'http://oweupqzdv.bkt.clouddn.com/time-left.png', '2018-04-17 21:08:30', '2018-04-17 21:08:32');
+INSERT INTO `tb_panel_content` VALUES ('34', '7', '0', '150635087972564', '3', null, 'https://s1.ax1x.com/2018/05/19/Ccdiid.png', '', '', '2018-04-17 21:08:30', '2018-04-17 21:08:32');
 INSERT INTO `tb_panel_content` VALUES ('35', '7', '0', '150642571432843', '4', '', 'http://ow2h3ee9w.bkt.clouddn.com/24401108web1.png', null, null, '2018-04-18 23:44:48', '2018-04-20 11:41:46');
 INSERT INTO `tb_panel_content` VALUES ('36', '9', '0', '150635087972564', '1', 'https://www.smartisan.com/pr/#/video/conference-jianguopro2', 'https://resource.smartisan.com/resource/88684d7ed5eee77e34f044fa32a9121b.png', null, null, '2018-04-18 23:51:45', '2018-04-20 12:03:05');
 INSERT INTO `tb_panel_content` VALUES ('37', '9', '0', '150642571432835', '2', 'https://www.smartisan.com/os/#/4-x', 'https://resource.smartisan.com/resource/6/610400dibu.jpg', null, null, '2018-04-18 23:51:51', '2018-04-20 12:03:19');
@@ -1674,6 +1649,13 @@ INSERT INTO `tb_panel_content` VALUES ('48', '6', '0', '150642571432835', '2', n
 INSERT INTO `tb_panel_content` VALUES ('49', '4', '0', '150635087972564', '1', null, 'http://ow2h3ee9w.bkt.clouddn.com/FjvP4gBFeYGQoEtEX7dL3kbwJTDW', null, null, '2018-04-19 11:20:15', '2018-04-19 11:20:17');
 INSERT INTO `tb_panel_content` VALUES ('50', '4', '0', '150642571432835', '2', null, 'http://ow2h3ee9w.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB', null, null, '2018-04-19 11:20:19', '2018-04-19 11:20:21');
 INSERT INTO `tb_panel_content` VALUES ('51', '7', '0', '150635087972564', '5', '', 'http://ow2h3ee9w.bkt.clouddn.com/417pcchunrihaolishouji.png', null, null, '2018-04-19 15:09:40', '2018-04-19 21:16:04');
+INSERT INTO `tb_panel_content` VALUES ('55', '0', '1', null, '1', 'http://xmall.exrick.cn/#/goods?cid=1184', '品牌周边', null, null, '2018-07-27 20:48:21', '2018-07-27 22:32:51');
+INSERT INTO `tb_panel_content` VALUES ('58', '0', '1', null, '2', 'http://xmall.exrick.cn/#/thanks', '捐赠名单', null, null, '2018-07-27 20:50:07', '2018-07-27 22:25:18');
+INSERT INTO `tb_panel_content` VALUES ('59', '0', '0', null, '3', 'http://xmadmin.exrick.cn', '后台管理系统', null, null, '2018-07-27 22:25:44', '2018-07-27 22:26:54');
+INSERT INTO `tb_panel_content` VALUES ('60', '0', '0', null, '4', 'http://xpay.exrick.cn', 'XPay支付系统', null, null, '2018-07-27 22:26:03', '2018-07-27 22:26:50');
+INSERT INTO `tb_panel_content` VALUES ('61', '0', '0', null, '5', 'https://github.com/Exrick/x-boot', 'XBoot框架', null, null, '2018-07-27 22:26:21', '2018-07-27 22:26:47');
+INSERT INTO `tb_panel_content` VALUES ('62', '0', '0', null, '6', 'https://www.bilibili.com/video/av23121122/', '宣传视频', null, null, '2018-07-27 22:26:44', '2018-07-27 22:26:44');
+INSERT INTO `tb_panel_content` VALUES ('63', '0', '0', null, '7', 'https://github.com/Exrick/xmall', 'Github', null, null, '2018-07-27 22:27:22', '2018-07-27 22:27:26');
 
 -- ----------------------------
 -- Table structure for tb_permission
@@ -1684,13 +1666,11 @@ CREATE TABLE `tb_permission` (
   `name` varchar(255) DEFAULT NULL,
   `permission` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_permission
 -- ----------------------------
-INSERT INTO `tb_permission` VALUES ('15', '添加栏目', '/content/cat/add');
-INSERT INTO `tb_permission` VALUES ('16', '编辑栏目', '/content/cat/update');
 INSERT INTO `tb_permission` VALUES ('17', '添加栏目内容', '/content/add');
 INSERT INTO `tb_permission` VALUES ('18', '删除栏目内容', '/content/del/*');
 INSERT INTO `tb_permission` VALUES ('19', '编辑栏目内容', '/content/update');
@@ -1704,7 +1684,6 @@ INSERT INTO `tb_permission` VALUES ('28', '商品删除', '/item/del/*');
 INSERT INTO `tb_permission` VALUES ('29', '启用商品', '/item/start/*');
 INSERT INTO `tb_permission` VALUES ('30', '停用商品', '/item/stop/*');
 INSERT INTO `tb_permission` VALUES ('31', '编辑商品', '/item/update/*');
-INSERT INTO `tb_permission` VALUES ('32', '同步索引页面', '/refresh-index');
 INSERT INTO `tb_permission` VALUES ('33', '会员添加', '/member/add');
 INSERT INTO `tb_permission` VALUES ('34', '修改会员密码', '/member/changePass/*');
 INSERT INTO `tb_permission` VALUES ('35', '会员删除', '/member/del/*');
@@ -1740,6 +1719,16 @@ INSERT INTO `tb_permission` VALUES ('64', '更新首页缓存', '/redis/index/up
 INSERT INTO `tb_permission` VALUES ('65', '更新推荐板块缓存', '/redis/recommend/update');
 INSERT INTO `tb_permission` VALUES ('66', '更新捐赠板块缓存', '/redis/thank/update');
 INSERT INTO `tb_permission` VALUES ('67', '同步索引', '/item/importIndex');
+INSERT INTO `tb_permission` VALUES ('69', '订单备注', '/order/remark');
+INSERT INTO `tb_permission` VALUES ('70', '订单发货', '/order/deliver');
+INSERT INTO `tb_permission` VALUES ('71', '取消订单', '/order/cancel/*');
+INSERT INTO `tb_permission` VALUES ('72', '快递添加', '/express/add');
+INSERT INTO `tb_permission` VALUES ('73', '快递编辑', '/express/update');
+INSERT INTO `tb_permission` VALUES ('74', '快递删除', '/express/del/*');
+INSERT INTO `tb_permission` VALUES ('75', '词典添加', '/dict/add');
+INSERT INTO `tb_permission` VALUES ('76', '词典编辑', '/dict/update');
+INSERT INTO `tb_permission` VALUES ('77', '词典删除', '/dict/del/*');
+INSERT INTO `tb_permission` VALUES ('78', '捐赠管理页面', '/thanks-list');
 
 -- ----------------------------
 -- Table structure for tb_role
@@ -1767,62 +1756,69 @@ CREATE TABLE `tb_role_perm` (
   `role_id` int(11) DEFAULT NULL,
   `permission_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_role_perm
 -- ----------------------------
-INSERT INTO `tb_role_perm` VALUES ('137', '1', '15');
-INSERT INTO `tb_role_perm` VALUES ('138', '1', '16');
-INSERT INTO `tb_role_perm` VALUES ('139', '1', '17');
-INSERT INTO `tb_role_perm` VALUES ('140', '1', '18');
-INSERT INTO `tb_role_perm` VALUES ('141', '1', '19');
-INSERT INTO `tb_role_perm` VALUES ('142', '1', '20');
-INSERT INTO `tb_role_perm` VALUES ('143', '1', '21');
-INSERT INTO `tb_role_perm` VALUES ('144', '1', '23');
-INSERT INTO `tb_role_perm` VALUES ('145', '1', '24');
-INSERT INTO `tb_role_perm` VALUES ('146', '1', '25');
-INSERT INTO `tb_role_perm` VALUES ('147', '1', '27');
-INSERT INTO `tb_role_perm` VALUES ('148', '1', '28');
-INSERT INTO `tb_role_perm` VALUES ('149', '1', '29');
-INSERT INTO `tb_role_perm` VALUES ('150', '1', '30');
-INSERT INTO `tb_role_perm` VALUES ('151', '1', '31');
-INSERT INTO `tb_role_perm` VALUES ('152', '1', '32');
-INSERT INTO `tb_role_perm` VALUES ('153', '1', '33');
-INSERT INTO `tb_role_perm` VALUES ('154', '1', '34');
-INSERT INTO `tb_role_perm` VALUES ('155', '1', '35');
-INSERT INTO `tb_role_perm` VALUES ('156', '1', '36');
-INSERT INTO `tb_role_perm` VALUES ('157', '1', '37');
-INSERT INTO `tb_role_perm` VALUES ('158', '1', '38');
-INSERT INTO `tb_role_perm` VALUES ('159', '1', '39');
-INSERT INTO `tb_role_perm` VALUES ('160', '1', '40');
-INSERT INTO `tb_role_perm` VALUES ('161', '1', '41');
-INSERT INTO `tb_role_perm` VALUES ('162', '1', '42');
-INSERT INTO `tb_role_perm` VALUES ('163', '1', '43');
-INSERT INTO `tb_role_perm` VALUES ('164', '1', '44');
-INSERT INTO `tb_role_perm` VALUES ('165', '1', '45');
-INSERT INTO `tb_role_perm` VALUES ('166', '1', '46');
-INSERT INTO `tb_role_perm` VALUES ('167', '1', '47');
-INSERT INTO `tb_role_perm` VALUES ('168', '1', '48');
-INSERT INTO `tb_role_perm` VALUES ('169', '1', '49');
-INSERT INTO `tb_role_perm` VALUES ('170', '1', '50');
-INSERT INTO `tb_role_perm` VALUES ('171', '1', '51');
-INSERT INTO `tb_role_perm` VALUES ('172', '1', '52');
-INSERT INTO `tb_role_perm` VALUES ('173', '1', '53');
-INSERT INTO `tb_role_perm` VALUES ('174', '1', '54');
-INSERT INTO `tb_role_perm` VALUES ('175', '1', '55');
-INSERT INTO `tb_role_perm` VALUES ('176', '1', '56');
-INSERT INTO `tb_role_perm` VALUES ('177', '1', '57');
-INSERT INTO `tb_role_perm` VALUES ('178', '1', '58');
-INSERT INTO `tb_role_perm` VALUES ('179', '1', '59');
-INSERT INTO `tb_role_perm` VALUES ('180', '1', '60');
-INSERT INTO `tb_role_perm` VALUES ('181', '1', '61');
-INSERT INTO `tb_role_perm` VALUES ('182', '1', '62');
-INSERT INTO `tb_role_perm` VALUES ('183', '1', '63');
-INSERT INTO `tb_role_perm` VALUES ('184', '1', '64');
-INSERT INTO `tb_role_perm` VALUES ('185', '1', '65');
-INSERT INTO `tb_role_perm` VALUES ('186', '1', '66');
-INSERT INTO `tb_role_perm` VALUES ('187', '1', '67');
+INSERT INTO `tb_role_perm` VALUES ('246', '1', '17');
+INSERT INTO `tb_role_perm` VALUES ('247', '1', '18');
+INSERT INTO `tb_role_perm` VALUES ('248', '1', '19');
+INSERT INTO `tb_role_perm` VALUES ('249', '1', '20');
+INSERT INTO `tb_role_perm` VALUES ('250', '1', '21');
+INSERT INTO `tb_role_perm` VALUES ('251', '1', '23');
+INSERT INTO `tb_role_perm` VALUES ('252', '1', '24');
+INSERT INTO `tb_role_perm` VALUES ('253', '1', '25');
+INSERT INTO `tb_role_perm` VALUES ('254', '1', '27');
+INSERT INTO `tb_role_perm` VALUES ('255', '1', '28');
+INSERT INTO `tb_role_perm` VALUES ('256', '1', '29');
+INSERT INTO `tb_role_perm` VALUES ('257', '1', '30');
+INSERT INTO `tb_role_perm` VALUES ('258', '1', '31');
+INSERT INTO `tb_role_perm` VALUES ('259', '1', '33');
+INSERT INTO `tb_role_perm` VALUES ('260', '1', '34');
+INSERT INTO `tb_role_perm` VALUES ('261', '1', '35');
+INSERT INTO `tb_role_perm` VALUES ('262', '1', '36');
+INSERT INTO `tb_role_perm` VALUES ('263', '1', '37');
+INSERT INTO `tb_role_perm` VALUES ('264', '1', '38');
+INSERT INTO `tb_role_perm` VALUES ('265', '1', '39');
+INSERT INTO `tb_role_perm` VALUES ('266', '1', '40');
+INSERT INTO `tb_role_perm` VALUES ('267', '1', '41');
+INSERT INTO `tb_role_perm` VALUES ('268', '1', '42');
+INSERT INTO `tb_role_perm` VALUES ('269', '1', '43');
+INSERT INTO `tb_role_perm` VALUES ('270', '1', '44');
+INSERT INTO `tb_role_perm` VALUES ('271', '1', '45');
+INSERT INTO `tb_role_perm` VALUES ('272', '1', '46');
+INSERT INTO `tb_role_perm` VALUES ('273', '1', '47');
+INSERT INTO `tb_role_perm` VALUES ('274', '1', '48');
+INSERT INTO `tb_role_perm` VALUES ('275', '1', '49');
+INSERT INTO `tb_role_perm` VALUES ('276', '1', '50');
+INSERT INTO `tb_role_perm` VALUES ('277', '1', '51');
+INSERT INTO `tb_role_perm` VALUES ('278', '1', '52');
+INSERT INTO `tb_role_perm` VALUES ('279', '1', '53');
+INSERT INTO `tb_role_perm` VALUES ('280', '1', '54');
+INSERT INTO `tb_role_perm` VALUES ('281', '1', '55');
+INSERT INTO `tb_role_perm` VALUES ('282', '1', '56');
+INSERT INTO `tb_role_perm` VALUES ('283', '1', '57');
+INSERT INTO `tb_role_perm` VALUES ('284', '1', '58');
+INSERT INTO `tb_role_perm` VALUES ('285', '1', '59');
+INSERT INTO `tb_role_perm` VALUES ('286', '1', '60');
+INSERT INTO `tb_role_perm` VALUES ('287', '1', '61');
+INSERT INTO `tb_role_perm` VALUES ('288', '1', '62');
+INSERT INTO `tb_role_perm` VALUES ('289', '1', '63');
+INSERT INTO `tb_role_perm` VALUES ('290', '1', '64');
+INSERT INTO `tb_role_perm` VALUES ('291', '1', '65');
+INSERT INTO `tb_role_perm` VALUES ('292', '1', '66');
+INSERT INTO `tb_role_perm` VALUES ('293', '1', '67');
+INSERT INTO `tb_role_perm` VALUES ('294', '1', '69');
+INSERT INTO `tb_role_perm` VALUES ('295', '1', '70');
+INSERT INTO `tb_role_perm` VALUES ('296', '1', '71');
+INSERT INTO `tb_role_perm` VALUES ('297', '1', '72');
+INSERT INTO `tb_role_perm` VALUES ('298', '1', '73');
+INSERT INTO `tb_role_perm` VALUES ('299', '1', '74');
+INSERT INTO `tb_role_perm` VALUES ('300', '1', '75');
+INSERT INTO `tb_role_perm` VALUES ('301', '1', '76');
+INSERT INTO `tb_role_perm` VALUES ('302', '1', '77');
+INSERT INTO `tb_role_perm` VALUES ('303', '1', '78');
 
 -- ----------------------------
 -- Table structure for tb_shiro_filter
@@ -1834,7 +1830,7 @@ CREATE TABLE `tb_shiro_filter` (
   `perms` varchar(255) DEFAULT NULL,
   `sort_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_shiro_filter
@@ -1903,6 +1899,16 @@ INSERT INTO `tb_shiro_filter` VALUES ('72', '/redis/index/update', 'perms[/redis
 INSERT INTO `tb_shiro_filter` VALUES ('73', '/redis/recommend/update', 'perms[/redis/recommend/update]', '60');
 INSERT INTO `tb_shiro_filter` VALUES ('74', '/redis/thank/update', 'perms[/redis/thank/update]', '61');
 INSERT INTO `tb_shiro_filter` VALUES ('75', '/item/importIndex', 'perms[/item/importIndex]', '62');
+INSERT INTO `tb_shiro_filter` VALUES ('76', '/order/remark', 'perms[/order/remark]', '63');
+INSERT INTO `tb_shiro_filter` VALUES ('77', '/order/deliver', 'perms[/order/deliver]', '64');
+INSERT INTO `tb_shiro_filter` VALUES ('78', '/order/cancel/*', 'perms[/order/cancel/*]', '65');
+INSERT INTO `tb_shiro_filter` VALUES ('79', '/express/add', 'perms[/express/add]', '66');
+INSERT INTO `tb_shiro_filter` VALUES ('80', '/express/update', 'perms[/express/update]', '67');
+INSERT INTO `tb_shiro_filter` VALUES ('81', '/express/del/*', 'perms[/express/del/*]', '68');
+INSERT INTO `tb_shiro_filter` VALUES ('82', '/dict/add', 'perms[/dict/add]', '69');
+INSERT INTO `tb_shiro_filter` VALUES ('83', '/dict/update', 'perms[/dict/update]', '70');
+INSERT INTO `tb_shiro_filter` VALUES ('84', '/dict/del/*', 'perms[/dict/del/*]', '71');
+INSERT INTO `tb_shiro_filter` VALUES ('85', '/thanks-list', 'perms[/thanks-list]', '72');
 
 -- ----------------------------
 -- Table structure for tb_thanks
@@ -1925,7 +1931,7 @@ CREATE TABLE `tb_thanks` (
 -- ----------------------------
 -- Records of tb_thanks
 -- ----------------------------
-INSERT INTO `tb_thanks` VALUES ('6', '小黄鱼', '18782059038@163.com', '1.00', '无', null, null, null, null, '2018-03-30 19:03:07');
+INSERT INTO `tb_thanks` VALUES ('6', '小黄鱼', '18782059038@163.com', '1.00', '无', null, '1', 'Alipay', null, '2018-03-30 19:03:07');
 
 -- ----------------------------
 -- Table structure for tb_user

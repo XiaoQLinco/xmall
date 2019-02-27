@@ -81,6 +81,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 商城管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
+                    <li><a data-href="content-header-list" data-title="首页导航栏管理" href="javascript:void(0)">首页导航栏管理</a></li>
                     <li><a data-href="content-panel" data-title="首页板块管理" href="javascript:void(0)">首页板块管理</a></li>
                     <li><a data-href="content-banner-list" data-title="首页轮播图管理" href="javascript:void(0)">首页轮播图管理</a></li>
                     <li><a data-href="content-index-list" data-title="首页板块内容管理" href="javascript:void(0)">首页板块内容管理</a></li>
@@ -119,6 +120,7 @@
             <dd>
                 <ul>
                     <li><a data-href="refresh-index" data-title="同步索引" href="javascript:void(0)">同步索引</a></li>
+                    <li><a data-href="dict-list" data-title="词典库管理" href="javascript:void(0)">词典库管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -153,7 +155,7 @@
             <dt><i class="Hui-iconfont">&#xe61e;</i> 统计报表<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-
+                    <li><a data-href="chart-order" data-title="订单销量统计" href="javascript:void(0)">订单销量统计</a></li>
                 </ul>
             </dd>
         </dl>
@@ -161,8 +163,9 @@
             <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="system-shiro" data-title="权限配置" href="javascript:void(0)">权限配置</a></li>
                     <li><a data-href="system-base" data-title="基本设置" href="javascript:void(0)">基本设置</a></li>
+                    <li><a data-href="system-express" data-title="快递管理" href="javascript:void(0)">快递管理</a></li>
+                    <li><a data-href="system-shiro" data-title="权限配置" href="javascript:void(0)">权限配置</a></li>
                     <li><a data-href="system-log" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
                 </ul>
             </dd>
@@ -174,7 +177,7 @@
             <dt><i class="Hui-iconfont">&#xe6b7;</i> 捐赠管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="thanks-list" data-title="捐赠列表" href="javascript:void(0)">捐赠列表</a></li>
+                    <li><a data-href="/thanks-list" data-title="捐赠列表" href="javascript:void(0)">捐赠列表</a></li>
                 </ul>
             </dd>
         </dl>

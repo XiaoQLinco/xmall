@@ -7,6 +7,7 @@ import cn.exrick.common.utils.ResultUtil;
 import cn.exrick.content.service.ContentService;
 import cn.exrick.manager.dto.front.ProductDet;
 import cn.exrick.manager.pojo.TbPanel;
+import cn.exrick.manager.pojo.TbPanelContent;
 import cn.exrick.search.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,14 @@ public class GoodsController {
     private ContentService contentService;
     @Autowired
     private SearchService searchService;
+
+    @RequestMapping(value = "/goods/navList",method = RequestMethod.GET)
+    @ApiOperation(value = "获取导航栏")
+    public Result<List<TbPanelContent>> getNavList(){
+
+        List<TbPanelContent> list=contentService.getNavList();
+        return new ResultUtil<List<TbPanelContent>>().setData(list);
+    }
 
     @RequestMapping(value = "/goods/home",method = RequestMethod.GET)
     @ApiOperation(value = "首页内容展示")
@@ -83,5 +92,12 @@ public class GoodsController {
 
         List<TbPanel> list=contentService.getThankGoods();
         return new ResultUtil<List<TbPanel>>().setData(list);
+    }
+
+    @RequestMapping(value = "/goods/quickSearch",produces= "text/plain;charset=UTF-8",method = RequestMethod.GET)
+    @ApiOperation(value = "快速搜索")
+    public String getQuickSearch(@RequestParam(defaultValue = "") String key){
+
+        return searchService.quickSearch(key);
     }
 }
